@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js rakendus</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+    <script>
+        function joonista(){
+        var arv = parseInt(document.getElementById("arv").value);
+        var varv1 = document.getElementById("varv1").value;
+        var varv2 = document.getElementById("varv2").value;
+        var varv3 = document.getElementById("varv3").value;
+        var suurus = parseInt(document.getElementById("suurus").value);
+        var kujund = parseInt(document.getElementById("kujund").value-1);
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext("2d");
+        var nurk = 2*Math.PI / arv;
+        var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+        gradient.addColorStop("0", varv1);
+        gradient.addColorStop("0.25" ,varv2);
+        gradient.addColorStop("0.5", varv3);
+        ctx.clearRect(0,0,tahvel.width,tahvel.height);
+        ctx.translate(600,400);
+        ctx.strokeStyle = gradient;
+        for (var i=0; i < kujund+1; i++) {
+            ctx.translate(0+i*nurk,0+i*nurk);
+            for (var j=0; j < arv+1; j++) {
+                ctx.rotate(nurk);
+                ctx.strokeRect(0,0,suurus,suurus);  
+            }
+        }
+        ctx.translate(-600,-400);
+        
+    }
+    </script>
+</head>
+<body>
+    <main>
+    </main>
+    <canvas id="canvas" width="1200" height="800" style="border: 1px solid #000" ></canvas>
+<p>Palun sisesta korduste arv <input type="number" size="20" id="arv" ></p>
+<p>Palun sisesta joonise suurus <input type="number" size="20" id="suurus" ></p>
+<p>Palun sisesta kujundite arv <input type="number" size="20" id="kujund" ></p>
+<p>Palun sisesta esimene värv inglise keeles<input type="text" size="20" id="varv1" ></p>
+<p>Palun sisesta teine värv inglise keeles<input type="text" size="20" id="varv2" ></p>
+<p>Palun sisesta kolmas värv inglise keeles<input type="text" size="20" id="varv3" ></p>
+     <button onclick="joonista()"> Vajuta nuppu </button>
+</body>
+</html>
