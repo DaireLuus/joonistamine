@@ -20,7 +20,7 @@
         gradient.addColorStop("0.25" ,varv2);
         gradient.addColorStop("0.5", varv3);
         ctx.clearRect(0,0,tahvel.width,tahvel.height);
-        ctx.translate(600,400);
+        ctx.translate(600,250);
         ctx.strokeStyle = gradient;
         for (var i=0; i < kujund+1; i++) {
             ctx.translate(0+i*nurk,0+i*nurk);
@@ -37,7 +37,7 @@
 <body>
     <main>
     </main>
-    <canvas id="canvas" width="1000" height="500" style="border: 1px solid #000" ></canvas>
+    <canvas id="canvas" width="1200" height="500" style="border: 1px solid #000" ></canvas>
 <p>Palun sisesta korduste arv <input type="number" size="20" id="arv" ></p>
 <p>Palun sisesta joonise suurus <input type="number" size="20" id="suurus" ></p>
 <p>Palun sisesta kujundite arv <input type="number" size="20" id="kujund" ></p>
